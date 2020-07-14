@@ -1,4 +1,5 @@
 
+import React from 'react'
 import DndBackend from 'react-dnd-mouse-backend'
 import { DndProvider, useDrop, useDrag } from 'react-dnd'
 
@@ -11,32 +12,18 @@ function centerOfElement(el) {
     }
 }
 
-export default function Circuite({
-    blocks,
-    selectedBlocks,
-    positions,
-    setPositions,
-    renderBlock,
-    renderPipe,
-    getBlockIoPosition,
-}) {
+export default function NodeEditor(props) {
 
     return (
         <DndProvider backend={DndBackend}>
-            <CircuiteInside
-                blocks={blocks}
-                selectedBlocks={selectedBlocks}
-                positions={positions}
-                setPositions={setPositions}
-                renderBlock={renderBlock}
-                renderPipe={renderPipe}
-                getBlockIoPosition={getBlockIoPosition}
+            <NodeEditorInside
+                {...props}
             />
         </DndProvider>
     )
 }
 
-function CircuiteInside({
+function NodeEditorInside({
     blocks,
     selectedBlocks,
     positions,
