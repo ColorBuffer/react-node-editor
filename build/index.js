@@ -5,10 +5,17 @@ Object.defineProperty(exports, '__esModule', { value: true });
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var _extends = _interopDefault(require('@babel/runtime/helpers/extends'));
+var React = _interopDefault(require('react'));
 var DndBackend = _interopDefault(require('react-dnd-mouse-backend'));
 var reactDnd = require('react-dnd');
 
-function Circuite(_ref) {
+function NodeEditor(props) {
+  return /*#__PURE__*/React.createElement(reactDnd.DndProvider, {
+    backend: DndBackend
+  }, /*#__PURE__*/React.createElement(NodeEditorInside, props));
+}
+
+function NodeEditorInside(_ref) {
   var blocks = _ref.blocks,
       selectedBlocks = _ref.selectedBlocks,
       positions = _ref.positions,
@@ -16,32 +23,11 @@ function Circuite(_ref) {
       renderBlock = _ref.renderBlock,
       renderPipe = _ref.renderPipe,
       getBlockIoPosition = _ref.getBlockIoPosition;
-  return /*#__PURE__*/React.createElement(reactDnd.DndProvider, {
-    backend: DndBackend
-  }, /*#__PURE__*/React.createElement(CircuiteInside, {
-    blocks: blocks,
-    selectedBlocks: selectedBlocks,
-    positions: positions,
-    setPositions: setPositions,
-    renderBlock: renderBlock,
-    renderPipe: renderPipe,
-    getBlockIoPosition: getBlockIoPosition
-  }));
-}
 
-function CircuiteInside(_ref2) {
-  var blocks = _ref2.blocks,
-      selectedBlocks = _ref2.selectedBlocks,
-      positions = _ref2.positions,
-      setPositions = _ref2.setPositions,
-      renderBlock = _ref2.renderBlock,
-      renderPipe = _ref2.renderPipe,
-      getBlockIoPosition = _ref2.getBlockIoPosition;
-
-  function BlockWrapper(_ref3) {
-    var block = _ref3.block,
-        isSelected = _ref3.isSelected,
-        children = _ref3.children;
+  function BlockWrapper(_ref2) {
+    var block = _ref2.block,
+        isSelected = _ref2.isSelected,
+        children = _ref2.children;
 
     var _useDrag = reactDnd.useDrag({
       item: {
@@ -93,9 +79,9 @@ function CircuiteInside(_ref2) {
   }),
       drop = _useDrop[1];
 
-  function PipeWrapper(_ref4) {
-    var pipe = _ref4.pipe,
-        children = _ref4.children;
+  function PipeWrapper(_ref3) {
+    var pipe = _ref3.pipe,
+        children = _ref3.children;
     var p1 = getBlockIoPosition(pipe.source.blockId, 'output', pipe.source.ioIndex);
     var p2 = getBlockIoPosition(pipe.target.blockId, 'input', pipe.target.ioIndex);
     var sourcePosition = positions[pipe.source.blockId];
@@ -168,4 +154,4 @@ function CircuiteInside(_ref2) {
   })));
 }
 
-exports.Circuite = Circuite;
+exports.NodeEditor = NodeEditor;
