@@ -1,5 +1,6 @@
 
 import React from 'react'
+import {NodeEditor} from '../lib/index'
 
 export default function App() {
 
