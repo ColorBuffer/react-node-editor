@@ -6,7 +6,9 @@ export default function App() {
 
     return (
         <div>
-            
+            <NodeEditor
+                
+            />
         </div>
     )
 }
