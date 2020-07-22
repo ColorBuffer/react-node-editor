@@ -4,13 +4,13 @@ __react node editor__ is a graph based node editor written for reactjs.
 - lightweight
 
 
-### Installation
+## Installation
 
 ```sh
 npm install react-node-editor
 ```
 
-### Usage
+## Usage
 
 ```jsx
 
