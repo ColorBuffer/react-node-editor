@@ -12,7 +12,7 @@ npm install react-node-editor
 
 ### Usage
 
-```js
+```jsx
 
 import NodeEditor from 'react-node-editor'
 
@@ -20,7 +20,7 @@ export default function MyComponent() {
 
     return (
         <NodeEditor
-            
+
         />
     )
 }
