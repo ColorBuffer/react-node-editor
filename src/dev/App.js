@@ -1,9 +1,9 @@
 
 import React from 'react'
 import {NodeEditor} from '../lib/index'
-import and from './logical/blocks/AND.svg'
-import or from './logical/blocks/OR.svg'
-import inverse from './logical/blocks/INVERSE.svg'
+import And from './logical/blocks/AND'
+import Or from './logical/blocks/OR'
+import Inverse from './logical/blocks/INVERSE'
 
 export default function App() {
 
@@ -12,9 +12,9 @@ export default function App() {
 
     return (
         <div>
-            <img src={and} />
-            <img src={or} />
-            <img src={inverse} />
+            <And />
+            <Or />
+            <Inverse />
             
             <NodeEditor
                 blocks={blocks}
